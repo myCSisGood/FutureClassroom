@@ -8,8 +8,7 @@ interface Props {
 export default function AuthSidebar({ onLoginClick }: Props) {
   return (
     <aside className="flex items-center justify-center min-h-screen px-10">
-      <div className="w-full max-w-md space-y-8">
-        {/* Logo */}
+      <div className="w-full max-w-md space-y-12">
         <div className="space-y-6">
           <Image
             src="/icon/logo/icon_logo-ntu.svg"
@@ -25,63 +24,26 @@ export default function AuthSidebar({ onLoginClick }: Props) {
             </p>
           </div>
         </div>
-
-        {/* Form */}
-        <form className="space-y-4">
-          {/* Account Input */}
-          <div className="flex items-center gap-3 rounded-lg bg-gray-200 px-4 py-3">
-            <Image
-              src="/icon/function/icon_student-id.svg"
-              alt="Student ID"
-              width={24}
-              height={24}
-            />
-            <input
-              type="text"
-              placeholder="計中帳號"
-              className="body-1-reg w-full bg-transparent outline-none"
-            />
-          </div>
-
-          {/* Password Input */}
-          <div className="flex items-center gap-3 rounded-lg bg-gray-200 px-4 py-3">
-            <Image
-              src="/icon/function/icon_lock.svg"
-              alt="Lock"
-              width={24}
-              height={24}
-            />
-            <input
-              type="password"
-              placeholder="計中密碼"
-              className="body-1-reg w-full bg-transparent outline-none"
-            />
-          </div>
-
-          {/* Forgot Password */}
-          <div className="text-right">
-            <a className="body-1-reg text-blue-70 hover:underline cursor-pointer">
-              修改密碼
-            </a>
-          </div>
-
-          {/* Login Button */}
-          {/* <button
-            onClick={onLoginClick}
-            type="button"
-            className="body-1-reg w-full rounded-full bg-black py-3 text-white hover:opacity-90 transition cursor-pointer"
-          >
-            登入
-          </button> */}
-          <Button
-            variant="primary"
-            size="large"
-            onClick={onLoginClick}
-            className="w-full"
-          >
-            登入
-          </Button>
-        </form>
+        <div className="bg-[rgba(6,45,65,0.05)] rounded-[12px] p-4">
+          <p className="body-1-reg text-gray-90">
+            登入本系統將視為您已充分了解、並同意遵守相關
+            <span
+              className="text-blue-70 font-medium cursor-pointer hover:underline"
+              onClick={onLoginClick}
+            >
+              使用條款
+            </span>
+            ！
+          </p>
+        </div>
+        <Button
+          variant="primary"
+          size="large"
+          onClick={onLoginClick}
+          className="w-full"
+        >
+          計中帳號登入
+        </Button>
       </div>
     </aside>
   );

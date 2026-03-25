@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-full font-medium transition-all focus-visible:outline-none disabled:pointer-events-none select-none cursor-pointer disabled:cursor-not-allowed",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-full transition-all focus-visible:outline-none disabled:pointer-events-none select-none cursor-pointer disabled:cursor-not-allowed",
   {
     variants: {
       variant: {
@@ -14,16 +14,16 @@ const buttonVariants = cva(
           "disabled:bg-gray-40 disabled:text-gray-30",
         ],
         secondary: [
-          "bg-[#E6E6E6] text-[#1A1A1A]",
-          "hover:bg-[#D9D9D9]",
-          "active:bg-[#2C5F78] active:text-white",
-          "disabled:bg-[#E6E6E6] disabled:text-[#BFBFBF] opacity-50",
+          "bg-[rgba(6,45,65,0.1)] text-gray-90",
+          "hover:bg-[rgba(6,45,65,0.05)]",
+          "active:bg-blue-80 active:text-white",
+          "disabled:bg-gray-30 disabled:text-gray-40",
         ],
       },
       size: {
-        small: "h-10 px-4 text-sm min-w-[80px]",
-        medium: "h-10 px-6 text-base min-w-[100px]",
-        large: "h-10 px-8 text-lg min-w-[120px]", // 根據你的需求，Large 增加間距
+        small: "h-10 px-4 min-w-[80px] body-1-reg",
+        medium: "h-10 px-6 min-w-[100px] body-1-reg",
+        large: "h-10 px-8 min-w-[120px] body-1-reg",
       },
     },
     defaultVariants: {
@@ -33,12 +33,11 @@ const buttonVariants = cva(
   },
 );
 
-// 繼承標準 Button 屬性，這樣 onClick, type, disabled 都能直接用
 export interface ButtonProps
   extends
     ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  asChild?: boolean; // 預留給未來如果需要搭配 Radix Slot 使用
+  asChild?: boolean;
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -48,7 +47,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         type={props.type || "button"}
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
-        {...props} // onClick, type="submit" 等都會自動注入到這裡
+        {...props}
       >
         {children}
       </button>

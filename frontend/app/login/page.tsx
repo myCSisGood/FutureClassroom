@@ -14,7 +14,7 @@ export default function LoginPage() {
         <div className="relative hidden lg:block p-6">
           <div className="relative w-full h-full overflow-hidden rounded-3xl">
             <Image
-              src="img_login-kv_1920.svg"
+              src="/images/img_login-kv_1920.svg"
               alt="Background"
               fill
               priority

@@ -1,14 +1,16 @@
-export default function SidebarIcon({
-  icon,
-  activeIcon,
-  active = false,
-  label,
-}: {
+interface SidebarIconProps {
+  label: string;
   icon: React.ReactNode;
   activeIcon: React.ReactNode;
   active?: boolean;
-  label: string;
-}) {
+}
+
+export default function SidebarIcon({
+  label,
+  icon,
+  activeIcon,
+  active = false,
+}: SidebarIconProps) {
   return (
     <div className="flex flex-col items-center cursor-pointer group w-full relative">
       <div

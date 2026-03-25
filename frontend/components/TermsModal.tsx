@@ -56,21 +56,6 @@ export default function TermsModal({ open, onClose }: TermsModalProps) {
           onChange={(e) => setChecked(e.target.checked)}
         />
 
-        {/* Button */}
-        {/* <button
-          disabled={!checked}
-          onClick={onClose}
-          className={`w-full mt-5 h-11 rounded-full font-medium transition
-            ${
-              checked
-                ? "bg-gray-90 text-white cursor-pointer"
-                : "bg-gray-40 text-gray-40 text-white cursor-not-allowed"
-            }
-          `}
-        >
-          開始使用
-        </button> */}
-
         <Button
           variant="primary"
           size="large"
