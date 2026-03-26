@@ -1,11 +1,15 @@
+import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
+import TermsModal from "@/components/TermsModal";
 
 interface Props {
   onLoginClick: () => void;
 }
 
 export default function AuthSidebar({ onLoginClick }: Props) {
+  const [openModal, setOpenModal] = useState(false);
+
   return (
     <aside className="flex items-center justify-center min-h-screen px-10">
       <div className="w-full max-w-md space-y-12">
@@ -29,7 +33,7 @@ export default function AuthSidebar({ onLoginClick }: Props) {
             登入本系統將視為您已充分了解、並同意遵守相關
             <span
               className="text-blue-70 font-medium cursor-pointer hover:underline"
-              onClick={onLoginClick}
+              onClick={() => setOpenModal(true)}
             >
               使用條款
             </span>
@@ -45,6 +49,7 @@ export default function AuthSidebar({ onLoginClick }: Props) {
           計中帳號登入
         </Button>
       </div>
+      <TermsModal open={openModal} onClose={() => setOpenModal(false)} />
     </aside>
   );
 }
