@@ -1,13 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
 import AuthSidebar from "@/components/AuthSidebar";
-import TermsModal from "@/components/TermsModal";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
-  const [openModal, setOpenModal] = useState(false);
-
+  const router = useRouter();
   return (
     <>
       <main className="min-h-screen grid lg:grid-cols-[1fr_380px]">
@@ -22,11 +20,8 @@ export default function LoginPage() {
             />
           </div>
         </div>
-
-        <AuthSidebar onLoginClick={() => setOpenModal(true)} />
+        <AuthSidebar onLoginClick={() => router.push("/home")} />
       </main>
-
-      <TermsModal open={openModal} onClose={() => setOpenModal(false)} />
     </>
   );
 }

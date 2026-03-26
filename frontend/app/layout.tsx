@@ -39,7 +39,9 @@ export default function RootLayout({
             <Sidebar />
           </div>
 
-          <main className="flex-1 overflow-y-auto">{children}</main>
+          <main className="flex-1 overflow-y-auto bg-[rgba(242,242,242,1)]">
+            {children}
+          </main>
         </div>
       </body>
     </html>

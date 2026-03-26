@@ -432,6 +432,8 @@ test-results/
 
 # Icon must end with two \r
 Icon
+!frontend/public/icon/
+!frontend/public/icon/**
 
 
 # Thumbnails
